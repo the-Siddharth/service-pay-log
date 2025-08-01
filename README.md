@@ -1,4 +1,4 @@
-# ServiceHub - Professional Digital Services Platform
+# Joseph Store - Professional Digital Services Platform
 
 A responsive web application for service marketplace with secure payments, order management, and admin dashboard.
 
