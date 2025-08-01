@@ -52,13 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Gaming-specific colors
-				gaming: {
-					orange: 'hsl(var(--gaming-orange))',
-					'orange-dark': 'hsl(var(--gaming-orange-dark))',
-					blue: 'hsl(var(--gaming-blue))',
-					purple: 'hsl(var(--gaming-purple))',
-					green: 'hsl(var(--gaming-green))'
+				// Royal luxury colors
+				royal: {
+					gold: 'hsl(var(--royal-gold))',
+					'gold-dark': 'hsl(var(--royal-gold-dark))',
+					silver: 'hsl(var(--royal-silver))',
+					bronze: 'hsl(var(--royal-bronze))',
+					crown: 'hsl(var(--royal-crown))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

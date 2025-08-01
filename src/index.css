@@ -6,51 +6,53 @@
 
 @layer base {
   :root {
-    /* Dark theme inspired by gaming platforms */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Royal luxury theme inspired by the crown logo */
+    --background: 230 25% 6%;
+    --foreground: 45 100% 96%;
 
-    --card: 224 44% 16%;
-    --card-foreground: 210 40% 98%;
+    --card: 230 25% 8%;
+    --card-foreground: 45 100% 96%;
 
-    --popover: 224 44% 16%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 230 25% 8%;
+    --popover-foreground: 45 100% 96%;
 
-    /* Orange/amber primary for gaming feel */
-    --primary: 25 95% 53%;
-    --primary-foreground: 222 47% 11%;
+    /* Royal gold primary from the crown */
+    --primary: 45 100% 65%;
+    --primary-foreground: 230 25% 6%;
 
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 230 25% 12%;
+    --secondary-foreground: 45 100% 96%;
 
-    --muted: 215 28% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 230 25% 12%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 32 95% 44%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 51 100% 70%;
+    --accent-foreground: 230 25% 6%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 100% 96%;
 
-    --border: 215 28% 25%;
-    --input: 215 28% 25%;
-    --ring: 25 95% 53%;
+    --border: 230 25% 15%;
+    --input: 230 25% 15%;
+    --ring: 45 100% 65%;
 
-    /* Custom gaming colors */
-    --gaming-orange: 25 95% 53%;
-    --gaming-orange-dark: 25 95% 43%;
-    --gaming-blue: 217 91% 60%;
-    --gaming-purple: 269 70% 50%;
-    --gaming-green: 142 76% 36%;
+    /* Royal luxury colors matching the logo */
+    --royal-gold: 45 100% 65%;
+    --royal-gold-dark: 42 95% 58%;
+    --royal-silver: 220 15% 85%;
+    --royal-bronze: 30 65% 55%;
+    --royal-crown: 51 100% 70%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(25 95% 53%), hsl(32 95% 44%));
-    --gradient-card: linear-gradient(145deg, hsl(224 44% 16%), hsl(215 28% 17%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(215 28% 17%));
+    /* Royal gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 65%), hsl(51 100% 70%));
+    --gradient-card: linear-gradient(145deg, hsl(230 25% 8%), hsl(230 25% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(230 25% 6%), hsl(230 25% 12%));
+    --gradient-royal: linear-gradient(135deg, hsl(45 100% 65%) 0%, hsl(51 100% 70%) 50%, hsl(42 95% 58%) 100%);
     
-    /* Shadows */
-    --shadow-glow: 0 0 20px hsl(25 95% 53% / 0.3);
-    --shadow-card: 0 8px 32px hsl(222 47% 8% / 0.4);
+    /* Royal shadows with golden glow */
+    --shadow-glow: 0 0 40px hsl(45 100% 65% / 0.4);
+    --shadow-card: 0 8px 32px hsl(230 25% 3% / 0.6);
+    --shadow-royal: 0 0 60px hsl(45 100% 65% / 0.3);
 
     --radius: 0.5rem;
 

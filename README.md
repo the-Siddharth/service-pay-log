@@ -1,4 +1,4 @@
-# Joseph Store - Professional Digital Services Platform
+# Zeal Store - Premium Digital Services Platform
 
 A responsive web application for service marketplace with secure payments, order management, and admin dashboard.
 
