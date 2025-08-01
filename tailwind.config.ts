@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Gaming-specific colors
+				gaming: {
+					orange: 'hsl(var(--gaming-orange))',
+					'orange-dark': 'hsl(var(--gaming-orange-dark))',
+					blue: 'hsl(var(--gaming-blue))',
+					purple: 'hsl(var(--gaming-purple))',
+					green: 'hsl(var(--gaming-green))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

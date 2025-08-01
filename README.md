@@ -1,73 +1,256 @@
-# Welcome to your Lovable project
+# ServiceHub - Professional Digital Services Platform
 
-## Project info
+A responsive web application for service marketplace with secure payments, order management, and admin dashboard.
 
-**URL**: https://lovable.dev/projects/c593ee43-c8d1-4bb4-b886-ef5475e38e5c
+## 🚀 Features
 
-## How can I edit this code?
+### Frontend (React + TypeScript)
+- **Service Selection**: Browse and filter professional services
+- **Guest Checkout**: No registration required
+- **Coupon System**: Apply discount codes
+- **Responsive Design**: Mobile and desktop optimized
+- **Real-time UI**: Instant feedback and smooth animations
 
-There are several ways of editing your application.
+### Payment Integration
+- **Razorpay**: Secure payment gateway for Indian users
+- **UPI Support**: Direct UPI payments
+- **Multiple Payment Methods**: Cards, net banking, wallets
 
-**Use Lovable**
+### Admin Dashboard
+- **Order Management**: View and update order status
+- **Password Protection**: Simple admin authentication
+- **Order Analytics**: Track pending, processing, completed orders
+- **Customer Details**: Full order and customer information
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c593ee43-c8d1-4bb4-b886-ef5475e38e5c) and start prompting.
+### Backend Integration (Supabase Ready)
+- **Email Notifications**: Automated customer and seller emails
+- **Google Sheets Logging**: Track all orders and payments
+- **Order Status Management**: Update order status in real-time
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+**Frontend:**
+- React 18 with TypeScript
+- Vite for fast development
+- Tailwind CSS for styling
+- shadcn/ui components
+- React Router for navigation
+- React Query for state management
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**Backend Integration:**
+- Supabase Edge Functions (replaces Express.js)
+- Razorpay SDK
+- Google Sheets API
+- Nodemailer for emails
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎨 Design System
 
-Follow these steps:
+The app features a gaming-inspired dark theme with:
+- Orange/amber primary colors (#FF6B1A)
+- Dark blue background (#1E293B)
+- Gaming-style animations and hover effects
+- Mobile-first responsive design
+- Custom button variants (gaming, premium)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+## 📱 Pages & Components
+
+### Main Pages
+- **Homepage** (`/`): Service browsing and checkout
+- **Admin Dashboard** (`/admin`): Order management (password: admin123)
+
+### Key Components
+- **ServiceCard**: Display service details with pricing
+- **CheckoutSidebar**: Customer details and payment form
+- **Navbar**: Navigation with admin access
+- **AdminPage**: Order management dashboard
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
+cd <PROJECT_NAME>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Development
+The app runs on `http://localhost:8080` by default.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Backend Setup (Supabase Integration)
 
-**Use GitHub Codespaces**
+Since this is a Lovable project, use Supabase Edge Functions for backend functionality:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Payment Processing (Edge Function)
+```typescript
+// supabase/functions/process-payment/index.ts
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import Razorpay from "https://esm.sh/razorpay@2.8.6"
 
-## What technologies are used for this project?
+serve(async (req) => {
+  const { amount, currency, customer } = await req.json()
+  
+  const razorpay = new Razorpay({
+    key_id: Deno.env.get('RAZORPAY_KEY_ID'),
+    key_secret: Deno.env.get('RAZORPAY_KEY_SECRET'),
+  })
+  
+  const order = await razorpay.orders.create({
+    amount: amount * 100, // Convert to paise
+    currency,
+    receipt: `order_${Date.now()}`,
+  })
+  
+  return new Response(JSON.stringify(order))
+})
+```
 
-This project is built with:
+### 2. Email Notifications
+```typescript
+// supabase/functions/send-email/index.ts
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+serve(async (req) => {
+  const { to, subject, html } = await req.json()
+  
+  // Use Supabase's built-in email or external service
+  // Implementation depends on your email provider
+})
+```
 
-## How can I deploy this project?
+### 3. Google Sheets Integration
+```typescript
+// supabase/functions/log-to-sheets/index.ts
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
-Simply open [Lovable](https://lovable.dev/projects/c593ee43-c8d1-4bb4-b886-ef5475e38e5c) and click on Share -> Publish.
+serve(async (req) => {
+  const orderData = await req.json()
+  
+  // Use Google Sheets API to log order data
+  // Requires Google Service Account credentials
+})
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🔐 Environment Variables
 
-Yes, you can!
+Set up these secrets in Supabase:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```env
+RAZORPAY_KEY_ID=rzp_test_xxx
+RAZORPAY_KEY_SECRET=xxx
+GOOGLE_SHEETS_PRIVATE_KEY=xxx
+GOOGLE_SHEETS_CLIENT_EMAIL=xxx
+SMTP_HOST=smtp.gmail.com
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📊 Services Configuration
+
+Edit `src/data/services.ts` to customize available services:
+
+```typescript
+export const services: Service[] = [
+  {
+    id: "web-design-basic",
+    name: "Basic Website Design",
+    price: 25000,
+    originalPrice: 35000,
+    category: "Web Design",
+    features: ["Responsive Design", "5 Pages", "Basic SEO"]
+  }
+  // Add more services...
+]
+```
+
+## 🎯 Deployment
+
+### Frontend (Vercel/Netlify)
+The frontend is automatically deployed through Lovable. For custom deployment:
+
+```bash
+npm run build
+# Deploy dist/ folder to your hosting provider
+```
+
+### Backend (Supabase)
+Edge functions are automatically deployed when you push to your Supabase project.
+
+## 🔒 Admin Access
+
+- URL: `/admin`
+- Password: `admin123` (change in production)
+- Features: View orders, update status, customer details
+
+## 📝 Customization
+
+### Adding New Services
+1. Edit `src/data/services.ts`
+2. Add service details with pricing
+3. Services appear automatically
+
+### Modifying Coupon Codes
+Edit the `validCoupons` object in `CheckoutSidebar.tsx`:
+
+```typescript
+const validCoupons = {
+  'WELCOME10': { discount: 10, type: 'percentage' },
+  'SAVE500': { discount: 500, type: 'fixed' }
+}
+```
+
+### Styling Changes
+- Colors: Edit `src/index.css` CSS variables
+- Components: Modify `tailwind.config.ts`
+- Gaming theme: Update gradient and shadow values
+
+## 🐛 Troubleshooting
+
+### Common Issues
+1. **Payment not working**: Check Razorpay credentials
+2. **Admin not accessible**: Verify password in `AdminPage.tsx`
+3. **Styling broken**: Check Tailwind configuration
+
+### Development Tips
+- Use browser dev tools for responsive testing
+- Check console for JavaScript errors
+- Verify environment variables in Supabase
+
+## 📈 Next Steps
+
+1. **Production Setup**:
+   - Change admin password
+   - Set up real payment credentials
+   - Configure email service
+
+2. **Features to Add**:
+   - User authentication
+   - Order tracking for customers
+   - Service delivery management
+   - Review and rating system
+
+3. **Scaling**:
+   - Database optimization
+   - CDN for static assets
+   - Caching for better performance
+
+## 📄 License
+
+This project is built with Lovable and follows their terms of service.
+
+## 🤝 Support
+
+For technical issues:
+1. Check the troubleshooting section
+2. Review Lovable documentation
+3. Contact support through Lovable platform
