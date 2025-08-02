@@ -148,30 +148,29 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
 
         <Separator />
 
-        {/* Customer Details Form */}
+        {/* Game Details Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-4">
-            <h3 className="font-semibold">Contact Details</h3>
+            <h3 className="font-semibold">Game Details</h3>
             
             <div className="space-y-2">
-              <Label htmlFor="name">Full Name *</Label>
+              <Label htmlFor="gameId">Game ID *</Label>
               <Input
-                id="name"
+                id="gameId"
                 value={customerDetails.name}
                 onChange={(e) => setCustomerDetails(prev => ({ ...prev, name: e.target.value }))}
-                placeholder="Enter your full name"
+                placeholder="Enter your Mobile Legends Game ID"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email Address *</Label>
+              <Label htmlFor="server">Server *</Label>
               <Input
-                id="email"
-                type="email"
+                id="server"
                 value={customerDetails.email}
                 onChange={(e) => setCustomerDetails(prev => ({ ...prev, email: e.target.value }))}
-                placeholder="Enter your email"
+                placeholder="Enter your Server ID"
                 required
               />
             </div>
@@ -189,12 +188,12 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="additionalInfo">Additional Requirements</Label>
+              <Label htmlFor="additionalInfo">Additional Notes</Label>
               <Textarea
                 id="additionalInfo"
                 value={customerDetails.additionalInfo}
                 onChange={(e) => setCustomerDetails(prev => ({ ...prev, additionalInfo: e.target.value }))}
-                placeholder="Any specific requirements or notes..."
+                placeholder="Any specific notes..."
                 rows={3}
               />
             </div>
