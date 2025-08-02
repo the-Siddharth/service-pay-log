@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    /* Royal luxury theme inspired by the crown logo */
-    --background: 230 25% 6%;
-    --foreground: 45 100% 96%;
+    /* Royal luxury light theme inspired by the crown logo */
+    --background: 0 0% 100%;
+    --foreground: 230 25% 6%;
 
-    --card: 230 25% 8%;
-    --card-foreground: 45 100% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 6%;
 
-    --popover: 230 25% 8%;
-    --popover-foreground: 45 100% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 6%;
 
     /* Royal gold primary from the crown */
-    --primary: 45 100% 65%;
-    --primary-foreground: 230 25% 6%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 230 25% 12%;
-    --secondary-foreground: 45 100% 96%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 230 25% 6%;
 
-    --muted: 230 25% 12%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 15% 40%;
 
-    --accent: 51 100% 70%;
-    --accent-foreground: 230 25% 6%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 45 100% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 230 25% 15%;
-    --input: 230 25% 15%;
-    --ring: 45 100% 65%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 45 100% 50%;
 
     /* Royal luxury colors matching the logo */
     --royal-gold: 45 100% 65%;
