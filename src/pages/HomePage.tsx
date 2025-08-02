@@ -86,26 +86,26 @@ export const HomePage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary border border-primary/30 px-6 py-3 rounded-full text-sm mb-8 shadow-lg">
               <Zap className="w-4 h-4" />
-              Professional Services at Your Fingertips
+              Instant Recharge via ID & Server ✅
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent leading-tight">
-              Choose Your Perfect
+              Mobile Legends
               <br />
-              <span className="text-primary">Digital Service</span>
+              <span className="text-primary">Diamond Recharge</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              From stunning websites to powerful mobile apps, get professional services delivered with quality and speed. 
-              Pay securely with UPI and track your project progress in real-time.
+              Get instant Mobile Legends diamonds for Indian IDs only. Choose from small, normal, or big packs. 
+              Secure payment with instant delivery guaranteed.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <Badge variant="secondary" className="px-6 py-3 text-base backdrop-blur-sm bg-secondary/80">
                 🔒 Secure UPI Payments
               </Badge>
               <Badge variant="secondary" className="px-6 py-3 text-base backdrop-blur-sm bg-secondary/80">
-                👨‍💻 Expert Developers
+                🇮🇳 Indian IDs Only
               </Badge>
               <Badge variant="secondary" className="px-6 py-3 text-base backdrop-blur-sm bg-secondary/80">
-                ⚡ Fast Delivery
+                ⚡ Instant Delivery
               </Badge>
             </div>
             <Button 
@@ -114,7 +114,7 @@ export const HomePage = () => {
               className="text-lg px-8 py-6 rounded-xl shadow-2xl"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Explore Services
+              Recharge Now
             </Button>
           </div>
         </div>
@@ -131,8 +131,8 @@ export const HomePage = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                    <Input
-                      placeholder="Search services..."
+                     <Input
+                      placeholder="Search diamond packs..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="pl-10"
@@ -151,7 +151,7 @@ export const HomePage = () => {
                     size="sm"
                     onClick={() => setSelectedCategory('')}
                   >
-                    All Services
+                    All Packs
                   </Button>
                   {categories.map((category) => (
                     <Button
@@ -180,7 +180,7 @@ export const HomePage = () => {
 
               {filteredServices.length === 0 && (
                 <div className="text-center py-12">
-                  <p className="text-muted-foreground">No services found matching your criteria.</p>
+                  <p className="text-muted-foreground">No diamond packs found matching your criteria.</p>
                 </div>
               )}
             </div>
@@ -200,28 +200,28 @@ export const HomePage = () => {
       {/* Trust Section */}
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Why Choose Our Services?</h2>
+          <h2 className="text-3xl font-bold mb-8">Why Choose Zeal Store?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto">
                 <Zap className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold">Fast Delivery</h3>
-              <p className="text-muted-foreground">Get your projects completed within the promised timeline with regular updates.</p>
+              <h3 className="text-xl font-semibold">Instant Delivery</h3>
+              <p className="text-muted-foreground">Get your diamonds delivered instantly to your Mobile Legends account.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto">
                 <Shield className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold">Secure Payments</h3>
-              <p className="text-muted-foreground">Pay securely through UPI, cards, or net banking with Razorpay integration.</p>
+              <p className="text-muted-foreground">Pay securely through UPI, cards, or net banking with trusted payment gateway.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto">
                 <Search className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold">Quality Assurance</h3>
-              <p className="text-muted-foreground">Every project goes through rigorous quality checks before delivery.</p>
+              <h3 className="text-xl font-semibold">Reliable Service</h3>
+              <p className="text-muted-foreground">24/7 support with guaranteed delivery for all Indian Mobile Legends players.</p>
             </div>
           </div>
         </div>

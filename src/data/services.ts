@@ -1,76 +1,249 @@
 import { Service } from "@/types";
 
 export const services: Service[] = [
+  // Small Packs
   {
-    id: "web-design-basic",
-    name: "Basic Website Design",
-    description: "Professional website design with up to 5 pages",
-    price: 25000,
-    originalPrice: 35000,
-    category: "Web Design",
-    features: ["Responsive Design", "5 Pages", "Basic SEO", "Mobile Optimized", "Contact Form"]
+    id: "diamonds-5",
+    name: "5 Diamonds",
+    description: "Small diamond pack for Mobile Legends",
+    price: 15,
+    category: "Small Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "web-design-premium",
-    name: "Premium Website Design",
-    description: "Advanced website with custom features and CMS",
-    price: 50000,
-    originalPrice: 70000,
-    category: "Web Design",
-    features: ["Custom Design", "10+ Pages", "CMS Integration", "Advanced SEO", "E-commerce Ready", "24/7 Support"]
+    id: "diamonds-11",
+    name: "11 Diamonds",
+    description: "Small diamond pack for Mobile Legends",
+    price: 20,
+    category: "Small Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "web-design-enterprise",
-    name: "Enterprise Website Solution",
-    description: "Complete enterprise solution with custom development",
-    price: 100000,
-    originalPrice: 150000,
-    category: "Web Design",
-    features: ["Unlimited Pages", "Custom Development", "API Integration", "Advanced Analytics", "Priority Support", "1 Year Maintenance"]
+    id: "diamonds-22",
+    name: "22 Diamonds",
+    description: "Small diamond pack for Mobile Legends",
+    price: 40,
+    category: "Small Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "app-development-basic",
-    name: "Mobile App - Basic",
-    description: "Simple mobile app for Android and iOS",
-    price: 75000,
-    originalPrice: 100000,
-    category: "App Development",
-    features: ["Cross Platform", "Basic Features", "App Store Submission", "3 Months Support"]
+    id: "diamonds-55",
+    name: "55 Diamonds",
+    description: "Small diamond pack for Mobile Legends",
+    price: 80,
+    category: "Small Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "app-development-advanced",
-    name: "Mobile App - Advanced",
-    description: "Feature-rich mobile app with backend integration",
-    price: 150000,
-    originalPrice: 200000,
-    category: "App Development",
-    features: ["Custom Backend", "Payment Integration", "Push Notifications", "Admin Panel", "6 Months Support"]
+    id: "diamonds-86",
+    name: "86 Diamonds",
+    description: "Small diamond pack for Mobile Legends",
+    price: 110,
+    category: "Small Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  // Normal Packs
+  {
+    id: "diamonds-110",
+    name: "110 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 160,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment", "Popular Choice"]
   },
   {
-    id: "digital-marketing",
-    name: "Digital Marketing Package",
-    description: "Complete digital marketing solution for 3 months",
-    price: 30000,
-    originalPrice: 45000,
-    category: "Marketing",
-    features: ["Social Media Management", "Google Ads", "Content Creation", "SEO Optimization", "Analytics Reports"]
+    id: "diamonds-172",
+    name: "172 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 220,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "logo-branding",
-    name: "Logo & Brand Identity",
-    description: "Professional logo design and brand guidelines",
-    price: 15000,
-    originalPrice: 25000,
-    category: "Design",
-    features: ["Custom Logo", "Brand Guidelines", "Business Card Design", "Letterhead Design", "Social Media Kit"]
+    id: "diamonds-257",
+    name: "257 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 320,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   },
   {
-    id: "consultation",
-    name: "Technical Consultation",
-    description: "1-hour technical consultation session",
+    id: "diamonds-284",
+    name: "284 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 350,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-343",
+    name: "343 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 430,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-429",
+    name: "429 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 540,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-514",
+    name: "514 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 640,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-565",
+    name: "565 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 700,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-600",
+    name: "600 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 750,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-706",
+    name: "706 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 850,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-792",
+    name: "792 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 960,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-878",
+    name: "878 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 1070,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-963",
+    name: "963 Diamonds",
+    description: "Normal diamond pack for Mobile Legends",
+    price: 1180,
+    category: "Normal Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  // Big Packs
+  {
+    id: "diamonds-1049",
+    name: "1049 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 1300,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment", "Best Value"]
+  },
+  {
+    id: "diamonds-1135",
+    name: "1135 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 1400,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-1220",
+    name: "1220 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 1500,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-1412",
+    name: "1412 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 1700,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-2195",
+    name: "2195 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 2500,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-2901",
+    name: "2901 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 3300,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-3688",
+    name: "3688 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 4200,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-4394",
+    name: "4394 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
     price: 5000,
-    category: "Consultation",
-    features: ["Video Call", "Technical Advice", "Project Planning", "Technology Recommendations", "Follow-up Email"]
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-5100",
+    name: "5100 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 5800,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "diamonds-5532",
+    name: "5532 Diamonds",
+    description: "Big diamond pack for Mobile Legends",
+    price: 6200,
+    category: "Big Packs",
+    features: ["Instant Delivery", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  // Passes
+  {
+    id: "weekly-pass",
+    name: "Weekly Pass",
+    description: "Weekly Pass for Mobile Legends",
+    price: 140,
+    category: "Passes",
+    features: ["Weekly Benefits", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
+  },
+  {
+    id: "twilight-pass",
+    name: "Twilight Pass",
+    description: "Twilight Pass for Mobile Legends",
+    price: 700,
+    category: "Passes",
+    features: ["Premium Benefits", "For Indian IDs Only", "24/7 Support", "Secure Payment"]
   }
 ];
 
