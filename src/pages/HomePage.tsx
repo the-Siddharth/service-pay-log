@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Search, Filter, Zap, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-services.jpg";
+import mlCharactersBg from "@/assets/ml-characters-bg.jpg";
 
 export const HomePage = () => {
   const { toast } = useToast();
@@ -72,14 +73,20 @@ export const HomePage = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        {/* Background Image */}
+        {/* Background Images */}
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
             alt="Professional digital services" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/95 to-background/90" />
+          {/* Mobile Legends Characters Background */}
+          <img 
+            src={mlCharactersBg} 
+            alt="Mobile Legends Characters" 
+            className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-soft-light"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
         </div>
         
         <div className="relative container mx-auto px-4 text-center">
