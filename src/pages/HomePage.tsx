@@ -84,9 +84,9 @@ export const HomePage = () => {
           <img 
             src={mlCharactersBg} 
             alt="Mobile Legends Characters" 
-            className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-soft-light"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90" />
         </div>
         
         <div className="relative container mx-auto px-4 text-center">
