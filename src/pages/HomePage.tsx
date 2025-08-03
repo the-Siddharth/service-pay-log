@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Search, Filter, Zap, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-services.jpg";
 import mlCharactersBg from "@/assets/ml-characters-bg.jpg";
 
@@ -35,33 +36,49 @@ export const HomePage = () => {
     }
   };
 
-  const handleProceedToPayment = async (customerDetails: CustomerDetails, couponCode?: string) => {
-    if (!selectedService) return;
-
+  const handleProceedToPayment = async (orderData: {
+    gameId: string;
+    server: string;
+    customerDetails: CustomerDetails;
+    service: Service;
+    finalAmount: number;
+    couponCode?: string;
+  }) => {
     setIsProcessing(true);
     
     try {
-      // Here you would integrate with Razorpay
-      // For now, we'll simulate the payment process
-      
-      toast({
-        title: "Payment Integration",
-        description: "Razorpay integration will be set up in the backend. This is a demo.",
+      // Call the process-order edge function
+      const { data, error } = await supabase.functions.invoke('process-order', {
+        body: {
+          customer_name: orderData.customerDetails.name || 'Unknown',
+          customer_email: orderData.customerDetails.email || '',
+          customer_phone: orderData.customerDetails.phone,
+          game_id: orderData.gameId,
+          server: orderData.server,
+          service_name: orderData.service.name,
+          service_description: orderData.service.description,
+          amount: orderData.finalAmount,
+          // payment_id will be added after Razorpay integration
+        }
       });
 
-      console.log('Payment Details:', {
-        service: selectedService,
-        customer: customerDetails,
-        couponCode,
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Order Placed Successfully!",
+        description: `Order ID: ${data.orderId}. We'll process your diamond recharge shortly.`,
       });
 
-      // Simulate processing time
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Clear the form
+      setSelectedService(null);
       
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Order processing error:', error);
       toast({
-        title: "Payment Error",
-        description: "There was an error processing your payment. Please try again.",
+        title: "Order Failed",
+        description: error.message || "There was an error processing your order. Please try again.",
         variant: "destructive",
       });
     } finally {

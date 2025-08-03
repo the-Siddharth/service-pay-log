@@ -9,15 +9,25 @@ import { Badge } from "@/components/ui/badge";
 import { CustomerDetails, Service, CouponCode } from "@/types";
 import { Check, Tag, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface CheckoutSidebarProps {
   selectedService: Service | null;
-  onProceedToPayment: (customerDetails: CustomerDetails, couponCode?: string) => void;
+  onProceedToPayment: (orderData: {
+    gameId: string;
+    server: string;
+    customerDetails: CustomerDetails;
+    service: Service;
+    finalAmount: number;
+    couponCode?: string;
+  }) => void;
   isProcessing?: boolean;
 }
 
 export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcessing }: CheckoutSidebarProps) => {
   const { toast } = useToast();
+  const [gameId, setGameId] = useState('');
+  const [server, setServer] = useState('');
   const [customerDetails, setCustomerDetails] = useState<CustomerDetails>({
     name: '',
     email: '',
@@ -102,16 +112,23 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
       return;
     }
 
-    if (!customerDetails.name || !customerDetails.email || !customerDetails.phone) {
+    if (!gameId || !server || !customerDetails.phone) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in Game ID, Server, and Phone Number.",
         variant: "destructive",
       });
       return;
     }
 
-    onProceedToPayment(customerDetails, appliedCoupon?.code);
+    onProceedToPayment({
+      gameId,
+      server,
+      customerDetails,
+      service: selectedService,
+      finalAmount: getFinalAmount(),
+      couponCode: appliedCoupon?.code
+    });
   };
 
   if (!selectedService) {
@@ -157,8 +174,8 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
               <Label htmlFor="gameId">Game ID *</Label>
               <Input
                 id="gameId"
-                value={customerDetails.name}
-                onChange={(e) => setCustomerDetails(prev => ({ ...prev, name: e.target.value }))}
+                value={gameId}
+                onChange={(e) => setGameId(e.target.value)}
                 placeholder="Enter your Mobile Legends Game ID"
                 required
               />
@@ -168,8 +185,8 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
               <Label htmlFor="server">Server *</Label>
               <Input
                 id="server"
-                value={customerDetails.email}
-                onChange={(e) => setCustomerDetails(prev => ({ ...prev, email: e.target.value }))}
+                value={server}
+                onChange={(e) => setServer(e.target.value)}
                 placeholder="Enter your Server ID"
                 required
               />
@@ -184,6 +201,27 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
                 onChange={(e) => setCustomerDetails(prev => ({ ...prev, phone: e.target.value }))}
                 placeholder="+91 XXXXX XXXXX"
                 required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="customerName">Customer Name</Label>
+              <Input
+                id="customerName"
+                value={customerDetails.name}
+                onChange={(e) => setCustomerDetails(prev => ({ ...prev, name: e.target.value }))}
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={customerDetails.email}
+                onChange={(e) => setCustomerDetails(prev => ({ ...prev, email: e.target.value }))}
+                placeholder="your.email@example.com"
               />
             </div>
 
