@@ -1,0 +1,2 @@
+-- Store the Google Sheets API key as a secret
+-- This will be handled through the Supabase dashboard
