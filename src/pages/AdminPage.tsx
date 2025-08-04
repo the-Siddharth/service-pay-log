@@ -66,18 +66,8 @@ const AdminPage = () => {
   const handleLogin = async () => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('username', username)
-        .single();
-
-      if (error || !data) {
-        throw new Error('Invalid credentials');
-      }
-
-      // Simple password check for demo (use "password" as the password)
-      if (password === 'password') {
+      // For demo purposes, use simple hardcoded credentials
+      if (username === 'admin' && password === 'admin123') {
         setIsAuthenticated(true);
         toast({
           title: 'Login Successful',
@@ -236,7 +226,7 @@ const AdminPage = () => {
                 {isLoading ? 'Logging in...' : 'Login'}
               </Button>
               <p className="text-sm text-muted-foreground text-center">
-                Default: username = admin, password = password
+                Default: username = admin, password = admin123
               </p>
             </div>
           </CardContent>

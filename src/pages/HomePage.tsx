@@ -58,7 +58,6 @@ export const HomePage = () => {
           service_name: orderData.service.name,
           service_description: orderData.service.description,
           amount: orderData.finalAmount,
-          // payment_id will be added after Razorpay integration
         }
       });
 
@@ -66,10 +65,22 @@ export const HomePage = () => {
         throw error;
       }
 
-      toast({
-        title: "Order Placed Successfully!",
-        description: `Order ID: ${data.orderId}. We'll process your diamond recharge shortly.`,
-      });
+      // Handle UPI payment
+      if (data?.upiUrl) {
+        // Try to open UPI app first
+        window.location.href = data.upiUrl;
+        
+        // Show success message
+        toast({
+          title: "UPI Payment Initiated!",
+          description: `Order ID: ${data.orderId}. Complete payment in your UPI app.`,
+        });
+      } else {
+        toast({
+          title: "Order Placed Successfully!",
+          description: `Order ID: ${data.orderId}. We'll process your diamond recharge shortly.`,
+        });
+      }
 
       // Clear the form
       setSelectedService(null);

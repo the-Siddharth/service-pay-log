@@ -121,11 +121,22 @@ serve(async (req: Request) => {
       console.error('Email notification error:', emailError);
     }
 
+    // Generate UPI payment link
+    const upiId = 'your-upi-id@paytm'; // Replace with your actual UPI ID
+    const amount = orderData.amount;
+    const transactionNote = `ML Boost - ${orderData.service_name}`;
+    
+    // Create UPI payment URL
+    const upiUrl = `upi://pay?pa=${upiId}&pn=ML%20Boost&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
+    
+    console.log('Generated UPI URL:', upiUrl);
+
     return new Response(
       JSON.stringify({ 
         success: true, 
         orderId: order.id,
-        message: 'Order processed successfully'
+        message: 'Order processed successfully',
+        upiUrl: upiUrl
       }),
       {
         status: 200,
