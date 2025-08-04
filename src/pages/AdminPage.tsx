@@ -76,9 +76,8 @@ const AdminPage = () => {
         throw new Error('Invalid credentials');
       }
 
-      // In a real app, you'd compare hashed passwords
-      // For demo, we'll use a simple comparison
-      if (password === 'admin123') {
+      // Simple password check for demo (use "password" as the password)
+      if (password === 'password') {
         setIsAuthenticated(true);
         toast({
           title: 'Login Successful',
@@ -237,7 +236,7 @@ const AdminPage = () => {
                 {isLoading ? 'Logging in...' : 'Login'}
               </Button>
               <p className="text-sm text-muted-foreground text-center">
-                Default: username = admin, password = admin123
+                Default: username = admin, password = password
               </p>
             </div>
           </CardContent>
