@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
-import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -24,8 +23,6 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
 );
 
-const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
-
 serve(async (req: Request) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -35,7 +32,7 @@ serve(async (req: Request) => {
     const orderData: OrderData = await req.json();
     console.log('Processing order:', orderData);
 
-    // 1. Save order to Supabase
+    // Save order to Supabase
     const { data: order, error: dbError } = await supabase
       .from('orders')
       .insert({
@@ -59,41 +56,6 @@ serve(async (req: Request) => {
     }
 
     console.log('Order saved to database:', order);
-
-    // 2. Add to Google Sheets
-    try {
-      const sheetsResponse = await fetch(
-        `https://sheets.googleapis.com/v4/spreadsheets/${Deno.env.get('GOOGLE_SHEET_ID')}/values/Sheet1:append?valueInputOption=RAW&key=${Deno.env.get('GOOGLE_SHEETS_API_KEY')}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            values: [[
-              new Date().toISOString(),
-              order.id,
-              orderData.customer_name,
-              orderData.customer_email,
-              orderData.customer_phone,
-              orderData.game_id,
-              orderData.server,
-              orderData.service_name,
-              orderData.amount,
-              'pending'
-            ]]
-          })
-        }
-      );
-
-      if (!sheetsResponse.ok) {
-        console.error('Google Sheets error:', await sheetsResponse.text());
-      } else {
-        console.log('Order added to Google Sheets successfully');
-      }
-    } catch (sheetsError) {
-      console.error('Google Sheets integration error:', sheetsError);
-    }
 
     return new Response(
       JSON.stringify({ 
