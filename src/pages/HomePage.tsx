@@ -86,7 +86,7 @@ I will send the payment screenshot after making the payment.
 Please confirm this order!`;
 
       // Redirect to WhatsApp (replace with your WhatsApp number)
-      const whatsappUrl = `https://wa.me/your-whatsapp-number?text=${encodeURIComponent(orderMessage)}`;
+      const whatsappUrl = `https://wa.me/919394659579?text=${encodeURIComponent(orderMessage)}`;
       window.open(whatsappUrl, '_blank');
 
       toast({
