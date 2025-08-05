@@ -80,8 +80,11 @@ export const HomePage = () => {
 - Email: ${orderData.customerDetails.email}
 - Phone: ${orderData.customerDetails.phone}
 
-💳 *Payment:*
-I will send the payment screenshot after making the payment.
+💳 *Payment Details:*
+UPI ID: *9957726324@pthdfc*
+Amount: *₹${orderData.finalAmount}*
+
+I will send the payment screenshot after making the payment to the above UPI ID.
 
 Please confirm this order!`;
 
@@ -91,7 +94,7 @@ Please confirm this order!`;
 
       toast({
         title: "Order Created!",
-        description: `Order ID: ${data.orderId}. Complete payment and share screenshot on WhatsApp.`,
+        description: `Order ID: ${data.orderId}. Pay to UPI: 9957726324@pthdfc and share screenshot on WhatsApp.`,
       });
 
       // Clear the form
