@@ -95,48 +95,11 @@ serve(async (req: Request) => {
       console.error('Google Sheets integration error:', sheetsError);
     }
 
-    // 3. Send email notification
-    try {
-      const emailResponse = await resend.emails.send({
-        from: 'Gaming Service <orders@yourdomain.com>',
-        to: ['admin@yourdomain.com'], // Replace with your admin email
-        subject: 'New Order Received',
-        html: `
-          <h2>New Order Received</h2>
-          <p><strong>Order ID:</strong> ${order.id}</p>
-          <p><strong>Customer:</strong> ${orderData.customer_name}</p>
-          <p><strong>Email:</strong> ${orderData.customer_email}</p>
-          <p><strong>Phone:</strong> ${orderData.customer_phone}</p>
-          <p><strong>Game ID:</strong> ${orderData.game_id}</p>
-          <p><strong>Server:</strong> ${orderData.server}</p>
-          <p><strong>Service:</strong> ${orderData.service_name}</p>
-          <p><strong>Amount:</strong> ₹${orderData.amount}</p>
-          <p><strong>Status:</strong> Pending</p>
-          <p><strong>Payment ID:</strong> ${orderData.payment_id || 'N/A'}</p>
-        `,
-      });
-
-      console.log('Email notification sent:', emailResponse);
-    } catch (emailError) {
-      console.error('Email notification error:', emailError);
-    }
-
-    // Generate UPI payment link
-    const upiId = 'your-upi-id@paytm'; // Replace with your actual UPI ID
-    const amount = orderData.amount;
-    const transactionNote = `ML Boost - ${orderData.service_name}`;
-    
-    // Create UPI payment URL
-    const upiUrl = `upi://pay?pa=${upiId}&pn=ML%20Boost&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
-    
-    console.log('Generated UPI URL:', upiUrl);
-
     return new Response(
       JSON.stringify({ 
         success: true, 
         orderId: order.id,
-        message: 'Order processed successfully',
-        upiUrl: upiUrl
+        message: 'Order processed successfully'
       }),
       {
         status: 200,

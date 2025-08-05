@@ -314,10 +314,10 @@ export const CheckoutSidebar = ({ selectedService, onProceedToPayment, isProcess
           {isProcessing ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Processing UPI Payment...
+              Creating Order...
             </>
           ) : (
-            `Pay ${formatPrice(getFinalAmount())} via UPI`
+            `Pay ${formatPrice(getFinalAmount())} via WhatsApp`
           )}
         </Button>
       </CardFooter>

@@ -65,22 +65,34 @@ export const HomePage = () => {
         throw error;
       }
 
-      // Handle UPI payment
-      if (data?.upiUrl) {
-        // Try to open UPI app first
-        window.location.href = data.upiUrl;
-        
-        // Show success message
-        toast({
-          title: "UPI Payment Initiated!",
-          description: `Order ID: ${data.orderId}. Complete payment in your UPI app.`,
-        });
-      } else {
-        toast({
-          title: "Order Placed Successfully!",
-          description: `Order ID: ${data.orderId}. We'll process your diamond recharge shortly.`,
-        });
-      }
+      // Create WhatsApp message with order details
+      const orderMessage = `Hi! I'd like to place an order:
+
+🎮 *Order Details:*
+- Service: ${orderData.service.name}
+- Game ID: ${orderData.gameId}
+- Server: ${orderData.server}
+- Amount: ₹${orderData.finalAmount}
+- Order ID: ${data.orderId}
+
+👤 *Customer Details:*
+- Name: ${orderData.customerDetails.name}
+- Email: ${orderData.customerDetails.email}
+- Phone: ${orderData.customerDetails.phone}
+
+💳 *Payment:*
+I will send the payment screenshot after making the payment.
+
+Please confirm this order!`;
+
+      // Redirect to WhatsApp (replace with your WhatsApp number)
+      const whatsappUrl = `https://wa.me/your-whatsapp-number?text=${encodeURIComponent(orderMessage)}`;
+      window.open(whatsappUrl, '_blank');
+
+      toast({
+        title: "Order Created!",
+        description: `Order ID: ${data.orderId}. Complete payment and share screenshot on WhatsApp.`,
+      });
 
       // Clear the form
       setSelectedService(null);
