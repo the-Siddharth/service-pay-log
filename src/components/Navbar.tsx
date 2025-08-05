@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ShoppingBag, Shield } from "lucide-react";
+import { Menu, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -40,12 +40,6 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/admin">
-                <Shield className="w-4 h-4 mr-2" />
-                Admin
-              </Link>
-            </Button>
           </div>
 
           {/* Mobile Navigation */}
@@ -68,12 +62,6 @@ export const Navbar = () => {
                       {item.name}
                     </a>
                   ))}
-                  <Button variant="outline" asChild>
-                    <Link to="/admin" onClick={() => setIsOpen(false)}>
-                      <Shield className="w-4 h-4 mr-2" />
-                      Admin Panel
-                    </Link>
-                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
